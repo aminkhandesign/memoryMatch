@@ -1,5 +1,6 @@
 // GLOBAL VARIABLE GO HERE:
 
+var clickedArray = [] //This empty array keeps track of clciked table cells
 
 // EXECUTE FUNCTIONS HERE:
 
@@ -29,5 +30,37 @@ function setUp(){
     cell.completed = false;
     cell.clicked = false;
     cell.value = answers[i];
+    cell.addEventListener("mouseenter",function(){
+    if(this.completed == false && this.clicked == false)
+        this.style.background = "orange";
+});
+
+/* Now that each table cell object has been allocated a 'completed' , 'clicked'
+and 'value' property , we sill add an eventListener to each */
+
+cell.addEventListener("mouseleave",function(){
+    if(this.completed == false && this.clicked == false)
+        this.style.background = "blue";
+});
+
+cell.addEventListener('click',function(){
+      if(this.click == false && this.completed==false)
+      {
+        clickedArray.push(this);
+        reveal(this);
+      }
+
+
+});
+
+
+
   }
+}
+
+
+ function reveal(cell){
+    cell.style.backgroundColor = "red";
+    cell.innerHTML = cell.value;
+    cell.clicked = true;
 }
