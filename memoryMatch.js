@@ -44,7 +44,7 @@ cell.addEventListener("mouseleave",function(){
 });
 
 cell.addEventListener('click',function(){
-      if(this.click == false && this.completed==false)
+      if(this.clicked == false && this.completed==false)
       {
         clickedArray.push(this);
         reveal(this);
